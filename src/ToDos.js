@@ -4,7 +4,7 @@ import './index.css'
 
 function ToDos() {
 
-  const [todos, updateTodos] = useState({
+  const [todos, updateTodos]=useState({
     todos: [{
       task: "Feed Blair",
       done: false
@@ -18,25 +18,25 @@ function ToDos() {
     newTodo: ''
   })
 
-  const handleDone = (idx) => {
+  const handleDone=(idx) => {
     updateTodos(newState => {
       return {
         ...newState,
-        todos: newState.todos.map((t, i) => idx === i ? ({ ...t, done: !t.done }) : t)
+        todos: newState.todos.map((t, i) => idx===i? ({ ...t, done: !t.done }):t)
       }
     })
   }
 
-  const handleChange = (e) => {
+  const handleChange=(e) => {
     e.persist();
     updateTodos(newState => ({ ...newState, newTodo: e.target.value }));
   }
 
-  const addTodo = (e) => {
+  const addTodo=(e) => {
     e.preventDefault();
 
     updateTodos(newState => {
-      const updatedTodos = [...newState.todos]
+      const updatedTodos=[...newState.todos]
       updatedTodos.push({
         task: newState.newTodo,
         done: false
